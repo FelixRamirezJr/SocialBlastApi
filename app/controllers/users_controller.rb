@@ -14,4 +14,14 @@ class UsersController < ActionController::API
     end
   end
 
+  def set_facebook_token
+    if( params[:token].present? && params[:id].present? )
+      user = User.find(params[:id])
+      user.update_column(:fb_token, params[:token])
+      render json: user
+    else
+      render json: "false"
+    end
+  end
+
 end
