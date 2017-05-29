@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/users/:id', to: "users#show"
   post '/users/new', to: "users#new"
   post '/users/set_facebook_token', to: "users#set_facebook_token"
+  post '/users/set_facebook_basic_info', to: "users#set_facebook_basic_info"
 end
