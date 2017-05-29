@@ -25,10 +25,11 @@ class UsersController < ActionController::API
   end
 
   def set_facebook_basic_info
-    if( params[:id].present? && params[:fb_name].present? &&
-        params[:fb_email].present? && params[:token].present? )
+    if params[:id].present?
       user = User.find(params[:id])
-      user.update(fb_name: params[:fb_name], fb_email: params[:fb_email], fb_token: params[:token] )
+      user.update_column(:fb_name, params[:fb_name]) if params[:fb_name].present?
+      user.update_column(:fb_email, params[:fb_email]) if params[:fb_email].present?
+      user.update_column(:fb_token, params[:token] ) if params[:token].present?
       render json: user
     else
       render json: "false"
