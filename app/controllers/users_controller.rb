@@ -29,6 +29,7 @@ class UsersController < ActionController::API
       user = User.find(params[:id])
       user.update_column(:fb_name, params[:fb_name]) if params[:fb_name].present?
       user.update_column(:fb_email, params[:fb_email]) if params[:fb_email].present?
+      user.update_column(:fb_user_id, params[:fb_user_id] ) if params[:fb_user_id].present?
       user.update_column(:fb_token, params[:token] ) if params[:token].present?
       render json: user
     else
