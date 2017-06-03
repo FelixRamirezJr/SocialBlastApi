@@ -1,7 +1,7 @@
 class UsersController < ActionController::API
 
   def show
-    render json: User.find(params[:id])
+      render :json => User.find(params[:id]).to_json(:include => [:blasts])
   end
 
   def new
