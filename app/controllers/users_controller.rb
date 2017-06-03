@@ -18,7 +18,7 @@ class UsersController < ActionController::API
     if( params[:token].present? && params[:id].present? )
       user = User.find(params[:id])
       user.update_column(:fb_token, params[:token])
-      if !user.blasts.where(name: Blast::Networks::Facebook).size
+      if user.blasts.where(name: Blast::Networks::Facebook).size == 0
         user.blasts.create(Blast::Networks::Facebook)
       end
       render json: user
