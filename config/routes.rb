@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   post '/users/new', to: "users#new"
   post '/users/set_facebook_token', to: "users#set_facebook_token"
   post '/users/set_facebook_basic_info', to: "users#set_facebook_basic_info"
+  post '/blasts/update_blasts', to: "blasts#update_blasts"
+  get '/get_blast_list', to: "blasts#get_blast_list"
 end
