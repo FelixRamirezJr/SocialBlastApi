@@ -40,4 +40,15 @@ class UsersController < ActionController::API
     end
   end
 
+  def verify_social
+    puts "the provider is" + params[:provider]
+    if params[:provider] == "twitter"
+        twitter(auth_hash)
+        redirect_to app
+    end
+  end
+
+  def app
+  end
+
 end
