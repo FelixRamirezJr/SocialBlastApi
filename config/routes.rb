@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post '/users/set_facebook_basic_info', to: "users#set_facebook_basic_info"
   post '/blasts/update_blasts', to: "blasts#update_blasts"
   get '/get_blast_list', to: "blasts#get_blast_list"
+  post '/blasts/toggle_active', to: "blasts#toggle_active"
 end

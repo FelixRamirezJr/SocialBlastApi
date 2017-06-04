@@ -16,6 +16,13 @@ class BlastsController < ApplicationController
     render json: User.find(params[:id]).blasts.where(active: true)
   end
 
+  def toggle_active
+    active = false
+    active = true if params[:active] == "true"
+    Blast.find(params[:id]).update_column(:active,active)
+    return render json: "okay"
+  end
+
 
 
 end
