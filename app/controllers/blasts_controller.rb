@@ -17,9 +17,7 @@ class BlastsController < ApplicationController
   end
 
   def toggle_active
-    active = false
-    active = true if params[:active] == "true"
-    Blast.find(params[:id]).update_column(:active,active)
+    Blast.find(params[:id]).update_column(:active,params[:active])
     return render json: "okay"
   end
 
