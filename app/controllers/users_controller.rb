@@ -42,7 +42,7 @@ class UsersController < ActionController::API
 
 
   def set_twitter_basic_info
-    puts params
+    puts params.inspect
     user = User.find(params[:id])
     user.update(
       twitter_user_id: params[:twitter_user_id],
