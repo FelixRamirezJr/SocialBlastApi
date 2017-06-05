@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603105356) do
+ActiveRecord::Schema.define(version: 20170605073614) do
 
   create_table "blasts", force: :cascade do |t|
     t.text "name"
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 20170603105356) do
     t.text "fb_name", default: ""
     t.text "fb_email", default: ""
     t.text "fb_user_id", default: ""
+    t.text "twitter_user_id", default: ""
+    t.text "twitter_token", default: ""
+    t.text "twitter_secret", default: ""
+    t.text "twitter_username", default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

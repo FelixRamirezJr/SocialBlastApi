@@ -44,12 +44,23 @@ class UsersController < ActionController::API
     puts "the provider is" + params[:provider]
     puts "TWITTER CALLBACK URL WAS CALLED YAY!"
     if params[:provider] == "twitter"
-      
+
     end
     render "app"
   end
 
-  def app
+  def set_twitter_basic_info
+    user = User.find(params[:id])
+    user.update(
+      twitter_user_id: params[:twitter_user_id],
+      twitter_token: params[:twitter_token],
+      twitter_secret: params[:twitter_secret],
+      twitter_username: params[:twitter_username]
+    )
+    if user.blasts.where(name: Blast::Networks::Twitter).size == 0
+      user.blasts.create(name: Blast::Networks::Twitter, active: false)
+    end
+    render json: user
   end
 
 end
