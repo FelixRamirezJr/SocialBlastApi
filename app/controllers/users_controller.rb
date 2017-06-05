@@ -42,10 +42,11 @@ class UsersController < ActionController::API
 
   def verify_social
     puts "the provider is" + params[:provider]
+    puts "TWITTER CALLBACK URL WAS CALLED YAY!"
     if params[:provider] == "twitter"
-        twitter(auth_hash)
-        redirect_to app
+      
     end
+    render "app"
   end
 
   def app
