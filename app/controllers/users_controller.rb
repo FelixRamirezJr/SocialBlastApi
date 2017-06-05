@@ -40,14 +40,6 @@ class UsersController < ActionController::API
     end
   end
 
-  def verify_social
-    puts "the provider is" + params[:provider]
-    puts "TWITTER CALLBACK URL WAS CALLED YAY!"
-    if params[:provider] == "twitter"
-
-    end
-    render "app"
-  end
 
   def set_twitter_basic_info
     user = User.find(params[:id])

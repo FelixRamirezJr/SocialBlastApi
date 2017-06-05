@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   post '/blasts/update_blasts', to: "blasts#update_blasts"
   get '/get_blast_list', to: "blasts#get_blast_list"
   post '/blasts/toggle_active', to: "blasts#toggle_active"
-  get '/users/set_twitter_basic_info', to: "users#set_twitter_basic_info"
+  post '/users/set_twitter_basic_info', to: "users#set_twitter_basic_info"
 end
