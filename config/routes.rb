@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/get_blast_list', to: "blasts#get_blast_list"
   post '/blasts/toggle_active', to: "blasts#toggle_active"
   post '/users/set_twitter_basic_info', to: "users#set_twitter_basic_info"
+  post '/blasts/blast_to_twitter', to: "users#blast_to_twitter"
 end

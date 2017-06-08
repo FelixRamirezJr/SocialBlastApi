@@ -21,6 +21,18 @@ class BlastsController < ApplicationController
     return render json: "okay"
   end
 
+  def blast_to_twitter
+    user = User.find(params[:id])
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = "hjiiNZpvH4lsQ7TZDrLB5KliB"
+      config.consumer_secret     = "8uJYSCCGAc2rMsfSJHaBICve7SJfuru5SGeVtJmkffaI4vKOJA"
+      config.access_token        = user.twitter_token
+      config.access_token_secret = user.twitter_secret
+    end
+    client.update(params[:message])
+    return user
+  end
+
 
 
 end
