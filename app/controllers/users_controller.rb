@@ -4,6 +4,20 @@ class UsersController < ActionController::API
       render :json => User.find(params[:id]).to_json(:include => [:blasts])
   end
 
+  # will login the user
+  def login
+    if( params[:email].present? && params[:password].present? )
+      user = User.find_by_email(params[:email])
+      if user && user.valid_password?(params[:password])
+        render json: user
+      else
+        render json: "error"
+      end
+    else
+      render json: "error"
+    end
+  end
+
   def new
     if( params[:email].present? && params[:password].present? )
       user = User.create(email: params[:email], password: params[:password],
