@@ -7,7 +7,7 @@ class UsersController < ActionController::API
   # will login the user
   def login
     if( params[:email].present? && params[:password].present? )
-      user = User.find_by_email(params[:email])
+      user = User.where("lower(email)=?",params[:email].downcase).first
       if user && user.valid_password?(params[:password])
         render json: user
       else
