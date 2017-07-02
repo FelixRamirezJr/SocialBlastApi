@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605073614) do
+ActiveRecord::Schema.define(version: 20170702013946) do
 
   create_table "blasts", force: :cascade do |t|
     t.text "name"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20170605073614) do
     t.datetime "updated_at", null: false
     t.boolean "active", default: true
     t.index ["user_id"], name: "index_blasts_on_user_id"
+  end
+
+  create_table "sent_blasts", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "message"
+    t.string "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sent_blasts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

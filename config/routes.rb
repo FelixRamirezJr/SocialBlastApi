@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   post '/users/set_twitter_basic_info', to: "users#set_twitter_basic_info"
   post '/blasts/blast_to_twitter', to: "blasts#blast_to_twitter"
   post '/users/login', to: "users#login"
+  get '/test_image', to: "blasts#test_image"
 end
