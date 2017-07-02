@@ -34,8 +34,9 @@ class BlastsController < ApplicationController
   end
 
   def test_image
-    file = File.open("picture.png", "w+")
-    User.first.sent_blasts.create(message: "YAY!", picture: file)
+    sent_blast = User.first.sent_blasts.create(message: "YAY!")
+    sent_blast.picture = Rails.root.join("picture.png").open
+    sent_blast.save!
     render json: "okay"
   end
 
