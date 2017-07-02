@@ -18,6 +18,7 @@ gem 'twitter'
 gem 'aws-sdk'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
