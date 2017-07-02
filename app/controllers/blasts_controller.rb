@@ -34,7 +34,7 @@ class BlastsController < ApplicationController
   end
 
   def test_image
-    file = File.open("tmp/picture.png", "w+")
+    file = File.open("picture.png", "w+")
     User.first.sent_blasts.create(message: "YAY!", picture: file)
     render json: "okay"
   end
