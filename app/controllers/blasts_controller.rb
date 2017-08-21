@@ -33,6 +33,14 @@ class BlastsController < ApplicationController
     return user
   end
 
+  def blast_with_photo
+    user = User.find(params[:id])
+    send_blast = user.sent_blasts.create(message: params[:message])
+    send_blast.picture = params[:photo].open
+    send_blast.save!
+    render json: "okay"
+  end
+
   def test_image
     sent_blast = User.first.sent_blasts.create(message: "YAY!")
     sent_blast.picture = Rails.root.join("picture.png").open
