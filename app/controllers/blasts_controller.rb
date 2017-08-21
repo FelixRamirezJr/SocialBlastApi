@@ -37,8 +37,12 @@ class BlastsController < ApplicationController
     user = User.find(params[:id])
     send_blast = user.sent_blasts.create(message: params[:message])
     send_blast.picture = params[:photo].open
-    send_blast.save!
-    render json: "okay"
+    if send_blast.save!
+      # Blast to twitter
+      render json: sent_blast
+    else
+      render json: "error"
+    end
   end
 
   def test_image
